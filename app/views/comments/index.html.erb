@@ -1,0 +1,14 @@
+<h1><%=@post.title%></h1>
+<%= form_for [@post, Comment.new] do |f|%>
+<%= f.text_area :content %>
+<%= f.submit  "Crear"%>
+<%end%>
+
+
+<% @comments.each do |comment| %>
+<ul>
+	<li><%=comment.content%> <%=link_to "Edit", edit_post_comment_path(@post, comment)%></li>
+	
+</ul>
+<% end %>
+
